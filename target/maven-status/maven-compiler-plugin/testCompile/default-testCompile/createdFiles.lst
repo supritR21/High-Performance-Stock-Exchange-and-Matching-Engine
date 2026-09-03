@@ -1,3 +1,5 @@
 matching\MatchingEngineTest.class
 order\OrderTest.class
+account\TraderAccountTest.class
+account\TradeSettlementServiceTest.class
 book\OrderBookTest.class

@@ -216,10 +216,11 @@ public final class MatchingEngine {
 
         Trade trade =
                 new Trade(
-                        tradeIdGenerator
-                                .incrementAndGet(),
+                        tradeIdGenerator.incrementAndGet(),
                         buyOrder.getOrderId(),
                         sellOrder.getOrderId(),
+                        buyOrder.getTraderId(),
+                        sellOrder.getTraderId(),
                         buyOrder.getSymbol(),
                         executionPrice,
                         executionQuantity

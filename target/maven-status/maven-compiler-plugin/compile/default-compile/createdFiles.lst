@@ -1,12 +1,16 @@
 order\OrderIdGenerator.class
+account\Portfolio.class
 matching\MatchingEngine.class
 order\Order.class
+account\Position.class
 book\PriceLevel.class
 order\OrderStatus.class
 order\OrderType.class
 matching\Trade.class
 order\OrderSide.class
 book\AskBook.class
+account\TraderAccount.class
+account\TradeSettlementService.class
 book\OrderBook.class
 exchange\Instrument.class
 book\BidBook.class
