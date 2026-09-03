@@ -11,7 +11,8 @@ public final class BidBook {
     private final NavigableMap<Long, PriceLevel> levels;
 
     public BidBook() {
-        this.levels = new TreeMap<>(Collections.reverseOrder());
+        this.levels =
+                new TreeMap<>(Collections.reverseOrder());
     }
 
     public void add(Order order) {
@@ -26,9 +27,14 @@ public final class BidBook {
     }
 
     public PriceLevel getBestLevel() {
+
         return levels.isEmpty()
                 ? null
                 : levels.firstEntry().getValue();
+    }
+
+    public PriceLevel getPriceLevel(long price) {
+        return levels.get(price);
     }
 
     public boolean isEmpty() {

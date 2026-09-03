@@ -1,10 +1,13 @@
-book\PriceLevel.class
 order\OrderIdGenerator.class
+matching\MatchingEngine.class
+order\Order.class
+book\PriceLevel.class
 order\OrderStatus.class
 order\OrderType.class
+matching\Trade.class
 order\OrderSide.class
 book\AskBook.class
 book\OrderBook.class
 exchange\Instrument.class
 book\BidBook.class
-order\Order.class
+matching\MatchResult.class

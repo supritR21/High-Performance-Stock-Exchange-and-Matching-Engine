@@ -3,6 +3,9 @@ E:\high-performance-stock-exchange-and-matching-engine\src\main\java\book\BidBoo
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\book\OrderBook.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\book\PriceLevel.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\exchange\Instrument.java
+E:\high-performance-stock-exchange-and-matching-engine\src\main\java\matching\MatchingEngine.java
+E:\high-performance-stock-exchange-and-matching-engine\src\main\java\matching\MatchResult.java
+E:\high-performance-stock-exchange-and-matching-engine\src\main\java\matching\Trade.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\order\Order.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\order\OrderIdGenerator.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\order\OrderSide.java

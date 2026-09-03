@@ -22,12 +22,23 @@ public final class Order {
             long price,
             long quantity
     ) {
+
         if (quantity <= 0) {
-            throw new IllegalArgumentException("Quantity must be positive");
+            throw new IllegalArgumentException(
+                    "Quantity must be positive"
+            );
         }
 
-        if (price < 0) {
-            throw new IllegalArgumentException("Price cannot be negative");
+        if (type == OrderType.LIMIT && price <= 0) {
+            throw new IllegalArgumentException(
+                    "LIMIT order price must be positive"
+            );
+        }
+
+        if (type == OrderType.MARKET && price != 0) {
+            throw new IllegalArgumentException(
+                    "MARKET order price must be 0"
+            );
         }
 
         this.orderId = orderId;
@@ -79,12 +90,23 @@ public final class Order {
     }
 
     public void accept() {
+        if (status != OrderStatus.NEW) {
+            throw new IllegalStateException(
+                    "Only NEW orders can be accepted"
+            );
+        }
+
         status = OrderStatus.ACCEPTED;
     }
 
     public void fill(long quantity) {
-        if (quantity <= 0 || quantity > remainingQuantity) {
-            throw new IllegalArgumentException("Invalid fill quantity");
+
+        if (quantity <= 0 ||
+                quantity > remainingQuantity) {
+
+            throw new IllegalArgumentException(
+                    "Invalid fill quantity"
+            );
         }
 
         remainingQuantity -= quantity;
@@ -97,8 +119,17 @@ public final class Order {
     }
 
     public void cancel() {
+
         if (status == OrderStatus.FILLED) {
-            throw new IllegalStateException("Cannot cancel a filled order");
+            throw new IllegalStateException(
+                    "Cannot cancel a filled order"
+            );
+        }
+
+        if (status == OrderStatus.CANCELLED) {
+            throw new IllegalStateException(
+                    "Order is already cancelled"
+            );
         }
 
         status = OrderStatus.CANCELLED;
@@ -106,6 +137,7 @@ public final class Order {
 
     @Override
     public String toString() {
+
         return "Order{" +
                 "orderId=" + orderId +
                 ", traderId=" + traderId +
@@ -114,7 +146,8 @@ public final class Order {
                 ", type=" + type +
                 ", price=" + price +
                 ", quantity=" + quantity +
-                ", remainingQuantity=" + remainingQuantity +
+                ", remainingQuantity=" +
+                remainingQuantity +
                 ", status=" + status +
                 '}';
     }

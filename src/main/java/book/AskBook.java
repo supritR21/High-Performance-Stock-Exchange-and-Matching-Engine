@@ -25,9 +25,14 @@ public final class AskBook {
     }
 
     public PriceLevel getBestLevel() {
+
         return levels.isEmpty()
                 ? null
                 : levels.firstEntry().getValue();
+    }
+
+    public PriceLevel getPriceLevel(long price) {
+        return levels.get(price);
     }
 
     public boolean isEmpty() {

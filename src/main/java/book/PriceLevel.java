@@ -38,4 +38,8 @@ public final class PriceLevel {
     public int size() {
         return orders.size();
     }
+
+    public boolean removeOrder(Order order) {
+        return orders.remove(order);
+    }
 }
