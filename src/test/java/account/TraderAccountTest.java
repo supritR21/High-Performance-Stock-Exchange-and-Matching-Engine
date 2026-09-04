@@ -148,4 +148,71 @@ public class TraderAccountTest {
                 )
         );
     }
+
+    @Test
+        void shouldReserveCash() {
+
+                TraderAccount account =
+                        new TraderAccount(
+                                1,
+                                1_000_000
+                        );
+
+                account.reserveCash(400_000);
+
+                assertEquals(
+                        400_000,
+                        account.getReservedCash()
+                );
+
+                assertEquals(
+                        600_000,
+                        account.getAvailableCash()
+                );
+
+                assertEquals(
+                        1_000_000,
+                        account.getCashBalance()
+                );
+        }
+
+    @Test
+        void shouldReleaseReservedCash() {
+
+                TraderAccount account =
+                        new TraderAccount(
+                                1,
+                                1_000_000
+                        );
+
+                account.reserveCash(400_000);
+
+                account.releaseCash(150_000);
+
+                assertEquals(
+                        250_000,
+                        account.getReservedCash()
+                );
+
+                assertEquals(
+                        750_000,
+                        account.getAvailableCash()
+                );
+        }
+    @Test
+        void shouldRejectReservationBeyondAvailableCash() {
+
+                TraderAccount account =
+                        new TraderAccount(
+                                1,
+                                1_000_000
+                        );
+
+                account.reserveCash(800_000);
+
+                assertThrows(
+                        IllegalStateException.class,
+                        () -> account.reserveCash(300_000)
+                );
+        }
 }

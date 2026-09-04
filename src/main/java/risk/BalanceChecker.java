@@ -12,54 +12,34 @@ public final class BalanceChecker {
             Order order
     ) {
 
-        /*
-         * Market orders currently don't have a meaningful
-         * maximum price in our Order model.
-         *
-         * Therefore we cannot safely determine the maximum
-         * cash requirement yet.
-         */
         if (order.getType() == OrderType.MARKET) {
 
             if (order.getSide() == OrderSide.BUY) {
-
                 return RiskCheckResult.rejected(
                         "Market BUY requires a maximum risk price"
                 );
             }
 
-            /*
-             * Market SELL can theoretically be checked against
-             * position only. Cash isn't required to sell.
-             */
             return RiskCheckResult.approved();
         }
 
         if (order.getPrice() <= 0) {
-
             return RiskCheckResult.rejected(
                     "Limit order price must be positive"
             );
         }
 
         if (order.getSide() != OrderSide.BUY) {
-
-            /*
-             * SELL orders don't require cash.
-             */
             return RiskCheckResult.approved();
         }
 
         final long orderValue;
 
         try {
-
-            orderValue =
-                    Math.multiplyExact(
-                            order.getPrice(),
-                            order.getQuantity()
-                    );
-
+            orderValue = Math.multiplyExact(
+                    order.getPrice(),
+                    order.getQuantity()
+            );
         } catch (ArithmeticException e) {
 
             return RiskCheckResult.rejected(
@@ -67,13 +47,15 @@ public final class BalanceChecker {
             );
         }
 
-        if (orderValue > account.getCashBalance()) {
+        // IMPORTANT:
+        // Use available cash, not total cash balance.
+        if (orderValue > account.getAvailableCash()) {
 
             return RiskCheckResult.rejected(
                     "Insufficient cash: required=" +
                     orderValue +
                     ", available=" +
-                    account.getCashBalance()
+                    account.getAvailableCash()
             );
         }
 

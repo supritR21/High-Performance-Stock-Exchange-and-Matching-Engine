@@ -1,6 +1,7 @@
 matching\MatchingEngineTest.class
 order\OrderTest.class
-account\TraderAccountTest.class
 account\TradeSettlementServiceTest.class
 book\OrderBookTest.class
+concurrency\AtomicCashReservationServiceTest.class
+account\TraderAccountTest.class
 risk\RiskEngineTest.class

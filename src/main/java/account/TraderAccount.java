@@ -4,14 +4,8 @@ public final class TraderAccount {
 
     private final long traderId;
 
-    /*
-     * Money is represented in the smallest unit.
-     *
-     * Example:
-     *
-     * $10,000.00 → 1,000,000 cents
-     */
     private long cashBalance;
+    private long reservedCash;
 
     private final Portfolio portfolio;
 
@@ -34,6 +28,7 @@ public final class TraderAccount {
 
         this.traderId = traderId;
         this.cashBalance = initialCash;
+        this.reservedCash = 0;
         this.portfolio = new Portfolio();
     }
 
@@ -45,28 +40,76 @@ public final class TraderAccount {
         return cashBalance;
     }
 
+    public long getReservedCash() {
+        return reservedCash;
+    }
+
+    public long getAvailableCash() {
+        return cashBalance - reservedCash;
+    }
+
     public Portfolio getPortfolio() {
         return portfolio;
     }
 
     public void deposit(long amount) {
 
-        if (amount <= 0) {
-            throw new IllegalArgumentException(
-                    "Deposit must be positive"
-            );
-        }
+        validatePositive(amount, "Deposit");
 
         cashBalance += amount;
     }
 
     public void withdraw(long amount) {
 
-        if (amount <= 0) {
-            throw new IllegalArgumentException(
-                    "Withdrawal must be positive"
+        validatePositive(amount, "Withdrawal");
+
+        if (amount > getAvailableCash()) {
+            throw new IllegalStateException(
+                    "Insufficient available cash"
             );
         }
+
+        cashBalance -= amount;
+    }
+
+    public void reserveCash(long amount) {
+
+        validatePositive(
+                amount,
+                "Reservation"
+        );
+
+        if (amount > getAvailableCash()) {
+            throw new IllegalStateException(
+                    "Insufficient available cash"
+            );
+        }
+
+        reservedCash += amount;
+    }
+
+    public void releaseCash(long amount) {
+
+        validatePositive(
+                amount,
+                "Release"
+        );
+
+        if (amount > reservedCash) {
+            throw new IllegalStateException(
+                    "Cannot release more cash than reserved"
+            );
+        }
+
+        reservedCash -= amount;
+    }
+
+    public void debit(long amount) {
+
+        validatePositive(
+                amount,
+                "Debit"
+        );
 
         if (amount > cashBalance) {
             throw new IllegalStateException(
@@ -79,30 +122,12 @@ public final class TraderAccount {
 
     public void credit(long amount) {
 
-        if (amount <= 0) {
-            throw new IllegalArgumentException(
-                    "Credit must be positive"
-            );
-        }
+        validatePositive(
+                amount,
+                "Credit"
+        );
 
         cashBalance += amount;
-    }
-
-    public void debit(long amount) {
-
-        if (amount <= 0) {
-            throw new IllegalArgumentException(
-                    "Debit must be positive"
-            );
-        }
-
-        if (amount > cashBalance) {
-            throw new IllegalStateException(
-                    "Insufficient cash"
-            );
-        }
-
-        cashBalance -= amount;
     }
 
     public void buy(
@@ -157,12 +182,27 @@ public final class TraderAccount {
         credit(totalValue);
     }
 
+    private void validatePositive(
+            long amount,
+            String operation
+    ) {
+
+        if (amount <= 0) {
+            throw new IllegalArgumentException(
+                    operation +
+                    " amount must be positive"
+            );
+        }
+    }
+
     @Override
     public String toString() {
 
         return "TraderAccount{" +
                 "traderId=" + traderId +
                 ", cashBalance=" + cashBalance +
+                ", reservedCash=" + reservedCash +
+                ", availableCash=" + getAvailableCash() +
                 ", portfolio=" + portfolio +
                 '}';
     }

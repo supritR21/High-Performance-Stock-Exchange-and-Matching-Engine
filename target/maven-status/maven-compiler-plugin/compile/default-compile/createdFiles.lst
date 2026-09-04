@@ -1,5 +1,6 @@
 order\OrderIdGenerator.class
 risk\RiskEngine.class
+account\AccountManager.class
 risk\BalanceChecker.class
 account\Portfolio.class
 matching\MatchingEngine.class
@@ -9,6 +10,7 @@ book\PriceLevel.class
 order\OrderStatus.class
 order\OrderType.class
 risk\PositionChecker.class
+concurrency\AccountLockManager.class
 matching\Trade.class
 order\OrderSide.class
 book\AskBook.class
@@ -18,4 +20,5 @@ account\TradeSettlementService.class
 book\OrderBook.class
 exchange\Instrument.class
 book\BidBook.class
+concurrency\AtomicCashReservationService.class
 matching\MatchResult.class

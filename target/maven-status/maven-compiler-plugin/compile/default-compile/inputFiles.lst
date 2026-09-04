@@ -1,3 +1,4 @@
+E:\high-performance-stock-exchange-and-matching-engine\src\main\java\account\AccountManager.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\account\Portfolio.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\account\Position.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\account\TraderAccount.java
@@ -6,6 +7,8 @@ E:\high-performance-stock-exchange-and-matching-engine\src\main\java\book\AskBoo
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\book\BidBook.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\book\OrderBook.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\book\PriceLevel.java
+E:\high-performance-stock-exchange-and-matching-engine\src\main\java\concurrency\AccountLockManager.java
+E:\high-performance-stock-exchange-and-matching-engine\src\main\java\concurrency\AtomicCashReservationService.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\exchange\Instrument.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\matching\MatchingEngine.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\matching\MatchResult.java

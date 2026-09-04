@@ -331,4 +331,36 @@ public class RiskEngineTest {
                 result.getReason()
         );
     }
+
+    @Test
+    void shouldRejectOrderWhenReservedCashMakesAvailableCashInsufficient() {
+
+        TraderAccount account =
+                new TraderAccount(1, 1_000_000);
+
+        account.reserveCash(800_000);
+
+        Order order =
+                new Order(
+                        1,
+                        1,
+                        "AAPL",
+                        OrderSide.BUY,
+                        OrderType.LIMIT,
+                        300,
+                        1_000
+                );
+
+        RiskEngine riskEngine = new RiskEngine();
+
+        RiskCheckResult result =
+                riskEngine.check(account, order);
+
+        assertFalse(result.isApproved());
+
+        assertEquals(
+                "Insufficient cash: required=300000, available=200000",
+                result.getReason()
+        );
+    }
 }
