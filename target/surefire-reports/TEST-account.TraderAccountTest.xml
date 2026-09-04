@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="account.TraderAccountTest" time="0.061" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="account.TraderAccountTest" time="0.053" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\Users\Suprit_Raj\Downloads\jdk-25_windows-x64_bin\jdk-25.0.4.1\bin"/>
-    <property name="sun.java.command" value="C:\Users\Suprit_Raj\AppData\Local\Temp\surefire16041092400643050108\surefirebooter-20260903094010562_3.jar C:\Users\Suprit_Raj\AppData\Local\Temp\surefire16041092400643050108 2026-09-03T09-40-10_459-jvmRun1 surefire-20260903094010562_1tmp surefire_0-20260903094010562_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Suprit_Raj\AppData\Local\Temp\surefire13138256480926054277\surefirebooter-20260904101238983_3.jar C:\Users\Suprit_Raj\AppData\Local\Temp\surefire13138256480926054277 2026-09-04T10-12-38_862-jvmRun1 surefire-20260904101238983_1tmp surefire_0-20260904101238983_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="E:\high-performance-stock-exchange-and-matching-engine\target\test-classes;E:\high-performance-stock-exchange-and-matching-engine\target\classes;C:\Users\Suprit_Raj\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.0\junit-jupiter-engine-5.10.0.jar;C:\Users\Suprit_Raj\.m2\repository\org\junit\platform\junit-platform-engine\1.10.0\junit-platform-engine-1.10.0.jar;C:\Users\Suprit_Raj\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Suprit_Raj\.m2\repository\org\junit\platform\junit-platform-commons\1.10.0\junit-platform-commons-1.10.0.jar;C:\Users\Suprit_Raj\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.0\junit-jupiter-api-5.10.0.jar;C:\Users\Suprit_Raj\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Suprit_Raj\AppData\Local\Temp\surefire16041092400643050108\surefirebooter-20260903094010562_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Suprit_Raj\AppData\Local\Temp\surefire13138256480926054277\surefirebooter-20260904101238983_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="25.0.4.1+1-LTS-5"/>
@@ -60,9 +60,9 @@
     <property name="java.class.version" value="69.0"/>
   </properties>
   <testcase name="shouldBuyShares" classname="account.TraderAccountTest" time="0.023"/>
-  <testcase name="shouldSellShares" classname="account.TraderAccountTest" time="0.002"/>
-  <testcase name="shouldCreateAccount" classname="account.TraderAccountTest" time="0.001"/>
+  <testcase name="shouldSellShares" classname="account.TraderAccountTest" time="0.001"/>
+  <testcase name="shouldCreateAccount" classname="account.TraderAccountTest" time="0.002"/>
   <testcase name="shouldRejectSellingTooManyShares" classname="account.TraderAccountTest" time="0.003"/>
-  <testcase name="shouldRejectInsufficientCash" classname="account.TraderAccountTest" time="0.002"/>
+  <testcase name="shouldRejectInsufficientCash" classname="account.TraderAccountTest" time="0.001"/>
   <testcase name="shouldDepositAndWithdrawCash" classname="account.TraderAccountTest" time="0.001"/>
 </testsuite>

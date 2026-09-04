@@ -15,3 +15,7 @@ E:\high-performance-stock-exchange-and-matching-engine\src\main\java\order\Order
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\order\OrderSide.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\order\OrderStatus.java
 E:\high-performance-stock-exchange-and-matching-engine\src\main\java\order\OrderType.java
+E:\high-performance-stock-exchange-and-matching-engine\src\main\java\risk\BalanceChecker.java
+E:\high-performance-stock-exchange-and-matching-engine\src\main\java\risk\PositionChecker.java
+E:\high-performance-stock-exchange-and-matching-engine\src\main\java\risk\RiskCheckResult.java
+E:\high-performance-stock-exchange-and-matching-engine\src\main\java\risk\RiskEngine.java

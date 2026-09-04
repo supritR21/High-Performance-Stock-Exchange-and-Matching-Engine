@@ -1,4 +1,6 @@
 order\OrderIdGenerator.class
+risk\RiskEngine.class
+risk\BalanceChecker.class
 account\Portfolio.class
 matching\MatchingEngine.class
 order\Order.class
@@ -6,9 +8,11 @@ account\Position.class
 book\PriceLevel.class
 order\OrderStatus.class
 order\OrderType.class
+risk\PositionChecker.class
 matching\Trade.class
 order\OrderSide.class
 book\AskBook.class
+risk\RiskCheckResult.class
 account\TraderAccount.class
 account\TradeSettlementService.class
 book\OrderBook.class
